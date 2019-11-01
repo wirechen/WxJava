@@ -17,7 +17,7 @@ import com.google.inject.Module;
  */
 public class ApiTestModule implements Module {
   private final Logger log = LoggerFactory.getLogger(this.getClass());
-  private static final String TEST_CONFIG_XML = "test-config.xml";
+  private static final String TEST_CONFIG_XML = "test-config-sample.xml";
 
   @Override
   public void configure(Binder binder) {

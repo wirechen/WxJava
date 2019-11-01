@@ -145,7 +145,7 @@ public class WxMaDemoServer {
   }
 
   private static void init() {
-    try (InputStream is1 = ClassLoader.getSystemResourceAsStream("test-config.xml")) {
+    try (InputStream is1 = ClassLoader.getSystemResourceAsStream("test-config-sample.xml")) {
       TestConfig config = TestConfig.fromXml(is1);
       config.setAccessTokenLock(new ReentrantLock());
       templateId = config.getTemplateId();

@@ -227,7 +227,9 @@ public enum WxMaErrorMsgEnum {
    * https://developers.weixin.qq.com/miniprogram/dev/api/open-api/sec-check/msgSecCheck.html
    * </pre>
    */
-  CODE_87014(87014, "内容含有违法违规内容");
+  CODE_87014(87014, "内容含有违法违规内容"),
+  CODE_43101(43101, "用户拒绝接受消息，如果用户之前曾经订阅过，则表示用户取消了订阅关系"),
+  CODE_47003(47003, "模板参数不准确，可能为空或者不满足规则，errmsg会提示具体是哪个字段出错"),;
 
   private int code;
   private String msg;

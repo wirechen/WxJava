@@ -3,13 +3,10 @@ package cn.binarywang.wx.miniapp.api.impl;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import cn.binarywang.wx.miniapp.bean.*;
 import org.testng.annotations.*;
 
 import cn.binarywang.wx.miniapp.api.WxMaService;
-import cn.binarywang.wx.miniapp.bean.WxMaKefuMessage;
-import cn.binarywang.wx.miniapp.bean.WxMaTemplateData;
-import cn.binarywang.wx.miniapp.bean.WxMaTemplateMessage;
-import cn.binarywang.wx.miniapp.bean.WxMaUniformMessage;
 import cn.binarywang.wx.miniapp.test.ApiTestModule;
 import cn.binarywang.wx.miniapp.test.TestConfig;
 import com.google.common.collect.Lists;
@@ -76,5 +73,18 @@ public class WxMaMsgServiceImplTest {
       .addData(new WxMaTemplateData("keyword4", "广州市海珠区新港中路397号"));
 
     this.wxService.getMsgService().sendUniformMsg(message);
+  }
+
+  @Test
+  public void testSendSubscribeMsg() throws WxErrorException {
+    TestConfig config = (TestConfig) this.wxService.getWxMaConfig();
+
+    WxMaSubscribeMessage message = new WxMaSubscribeMessage();
+    message.setTemplateId(config.getTemplateId());
+    message.setToUser(config.getOpenid());
+    message.addData(new WxMaSubscribeData("thing1", "牛逼楼盘"));
+    message.addData(new WxMaSubscribeData("date3", "2015年01月05日"));
+    message.addData(new WxMaSubscribeData("thing2", "牛逼大道666号"));
+    this.wxService.getMsgService().sendSubscribeMsg(message);
   }
 }
